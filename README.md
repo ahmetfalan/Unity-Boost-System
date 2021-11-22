@@ -112,9 +112,10 @@ CooldownManager.cs looks like this:
 public class CooldownManager : MonoBehaviour
 {
     public static CooldownManager Instance;
+    
     public List<IBuffable> Buffables = new List<IBuffable>();
+    
     public GameObject activeBuffs;
-    // Start is called before the first frame update
     void Awake()
     {
         if (Instance == null)
@@ -129,13 +130,9 @@ public class CooldownManager : MonoBehaviour
     }
     public void StartCooldown(IBuffable buffable)
     {
-        //if (!Buffables.Contains(buffable))
-        //{
         buffable.CurrentCooldown = buffable.MaxCoolDown; // current cooldown equal the druability
         Buffables.Add(buffable); // add list
-        //Instantiate(buffable.ImageInPanel, activeBuffs.transform); 
-        //}
-
+        Instantiate(buffable.ImageInPanel, activeBuffs.transform); 
     }
 
     void Update()
@@ -144,11 +141,6 @@ public class CooldownManager : MonoBehaviour
         {
             for (int i = 0; i < Buffables.Count; i++)
             {
-                //Debug.Log(Buffables[i].CurrentCooldown);
-                //if (Buffables[i].IsActive)
-                //{
-
-                //}
                 Buffables[i].CurrentCooldown -= Time.deltaTime; // timer
                 Buffables[i].ImageInPanel.SetActive(true); // activate buff ui image
                 Buffables[i].ImageInPanel.GetComponentInChildren<Text>().text = Convert.ToInt32(Buffables[i].CurrentCooldown).ToString(); // timer text
