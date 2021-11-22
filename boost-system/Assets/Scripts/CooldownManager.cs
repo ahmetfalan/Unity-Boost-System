@@ -28,7 +28,7 @@ public class CooldownManager : MonoBehaviour
         //{
         buffable.CurrentCooldown = buffable.MaxCoolDown;
         Buffables.Add(buffable);
-        Instantiate(buffable.ImageInPanel, activeBuffs.transform);
+        //Instantiate(buffable.ImageInPanel, activeBuffs.transform);
         //}
 
     }
