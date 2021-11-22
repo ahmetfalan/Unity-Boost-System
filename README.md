@@ -65,7 +65,7 @@ public class SpeedBuff :IBuffable
 ```
 
 Movement.cs looks like this:
-```
+```c#
 [SerializeField]
     private PlayerAttributes playerAttributes;
 
@@ -108,7 +108,7 @@ Movement.cs looks like this:
 ```
 
 CooldownManager.cs looks like this:
-```
+```c#
 public class CooldownManager : MonoBehaviour
 {
     public static CooldownManager Instance;
